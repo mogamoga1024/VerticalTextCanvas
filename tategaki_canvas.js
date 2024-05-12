@@ -1,11 +1,14 @@
 
-function cretaeTategakiCanvas(text, font) {
+function cretaeTategakiCanvas(text, font, shouldHankakuVertical = false) {
     const canvas = document.createElement("canvas");
 
     canvas.style.position = "fixed";
     canvas.style.top = "0";
     canvas.style.left = "110%";
     canvas.style.writingMode = "vertical-rl";
+    if (shouldHankakuVertical) {
+        canvas.style.textOrientation = "upright";
+    }
     document.body.append(canvas);
 
     const context = canvas.getContext("2d");
