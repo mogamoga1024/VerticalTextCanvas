@@ -1,9 +1,12 @@
 
 function cretaeTategakiCanvas(text, font) {
     const canvas = document.createElement("canvas");
-    document.body.append(canvas); // styleをいじる前にDOMを追加しないと縦書きにならない。
 
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "110%";
     canvas.style.writingMode = "vertical-rl";
+    document.body.append(canvas);
 
     const context = canvas.getContext("2d");
     context.font = font;
@@ -21,6 +24,10 @@ function cretaeTategakiCanvas(text, font) {
     context.fillText(text, 0, -textHeight);
 
     document.body.removeChild(canvas);
+    canvas.style.position = "";
+    canvas.style.top = "";
+    canvas.style.left = "";
+    canvas.style.writingMode = "";
 
     return canvas;
 }
