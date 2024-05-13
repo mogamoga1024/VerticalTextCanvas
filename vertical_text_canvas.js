@@ -1,14 +1,14 @@
 
 (() => {
-    const cretaeVerticalCanvas = (text, font, options = {}) => {
-        return _cretaeVerticalCanvas(text, font, false, options);
+    const cretaeVerticalTextCanvas = (text, font, options = {}) => {
+        return _cretaeVerticalTextCanvas(text, font, false, options);
     }
     
-    const cretaeAllVerticalCanvas = (text, font, options = {}) => {
-        return _cretaeVerticalCanvas(text, font, true, options);
+    const cretaeAllVerticalTextCanvas = (text, font, options = {}) => {
+        return _cretaeVerticalTextCanvas(text, font, true, options);
     }
     
-    const _cretaeVerticalCanvas = (text, font, shouldHankakuVertical, options) => {
+    const _cretaeVerticalTextCanvas = (text, font, shouldHankakuVertical, options) => {
         const canvas = document.createElement('canvas');
     
         canvas.style.position = 'fixed';
@@ -48,11 +48,11 @@
 
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = {
-            cretaeVerticalCanvas, cretaeAllVerticalCanvas
+            cretaeVerticalTextCanvas, cretaeAllVerticalTextCanvas
         };
     }
     else if (typeof window !== 'undefined') {
-        window.cretaeVerticalCanvas = cretaeVerticalCanvas;
-        window.cretaeAllVerticalCanvas = cretaeAllVerticalCanvas;
+        window.cretaeVerticalTextCanvas = cretaeVerticalTextCanvas;
+        window.cretaeAllVerticalTextCanvas = cretaeAllVerticalTextCanvas;
     }
 })();

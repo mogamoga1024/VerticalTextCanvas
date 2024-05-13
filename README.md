@@ -1,2 +1,2 @@
-# VerticalCanvas
+# VerticalTextCanvas
 縦書きできるキャンバス

@@ -1,12 +1,12 @@
 
-const canvas = document.querySelector('#Vertical-canvas');
+const canvas = document.querySelector('#canvas');
 const context = canvas.getContext('2d', { willReadFrequently: true });
 
 const font = '400 30px sans-serif';
 
-const image1 = cretaeVerticalCanvas('「ああ～、', font, { fillStyle: '#ff0000', strokeStyle: '#000000', lineWidth: 10 });
-const image2 = cretaeVerticalCanvas('心がぴょんぴょん', font, { fillStyle: '#00ff00' });
-const image3 = cretaeVerticalCanvas('するんじゃ～。」', font, { fillStyle: '#0000ff' });
+const image1 = cretaeVerticalTextCanvas('「ああ～、', font, { fillStyle: '#ff0000', strokeStyle: '#000000', lineWidth: 10 });
+const image2 = cretaeVerticalTextCanvas('心がぴょんぴょん', font, { fillStyle: '#00ff00' });
+const image3 = cretaeVerticalTextCanvas('するんじゃ～。」', font, { fillStyle: '#0000ff' });
 
 canvas.width = 400;
 canvas.height = 400;
