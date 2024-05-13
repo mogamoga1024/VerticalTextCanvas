@@ -2,13 +2,13 @@
 const canvas = document.querySelector('#canvas');
 const context = canvas.getContext('2d', { willReadFrequently: true });
 
-const font = '400 35px sans-serif';
+const font = '400 40px sans-serif';
 
 const image1 = createVerticalTextCanvas('「ああ～、', font, { fillStyle: '#ff0000' });
-const image1s = createVerticalTextStrokeCanvas('「ああ～、', font, { strokeStyle: '#00ffff', lineWidth: 1 });
+const image1s = createVerticalTextStrokeCanvas('「ああ～、', font, { strokeStyle: '#00ffff', lineWidth: 3 });
 const image2 = createVerticalTextCanvas('心がぴょんぴょん', font, { fillStyle: '#00ff00' });
 const image3 = createVerticalTextCanvas('するんじゃ～。」', font, { fillStyle: '#0000ff' });
-const image3s = createVerticalTextStrokeCanvas('するんじゃ～。」', font, { strokeStyle: '#ffff00', lineWidth: 1 });
+const image3s = createVerticalTextStrokeCanvas('するんじゃ～。」', font, { strokeStyle: '#ffff00', lineWidth: 3 });
 
 canvas.width = 400;
 canvas.height = 400;
