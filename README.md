@@ -116,7 +116,7 @@ context.drawImage(vTextcanvas, 0, 0);
 
 CSSを適用させる必要があるため、WebWorker内で使えないと思われます。
 
-## 自分がCSSでCanvasが縦書きができることを知ったリポジトリ（先駆者）
+## 自分がCSSでCanvasが縦書きができることを知ったリポジトリ（偉大なる先駆者）
 
 https://github.com/yuneco/canvas-draw-styled-text
 
