@@ -8,7 +8,8 @@ TODO
 
 ## サンプル
 
-TODO
+[普通の日本語](https://mogamoga1024.github.io/VerticalTextCanvas/sample/sample1.html)
+[半角英字](https://mogamoga1024.github.io/VerticalTextCanvas/sample/sample2.html)
 
 ## 無理なこと
 
