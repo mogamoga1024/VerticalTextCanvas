@@ -8,11 +8,11 @@
         return _createVerticalTextCanvas(text, font, true, false, 0, options);
     }
 
-    const createVerticalStrokeTextCanvas = (text, font, options = {}, maxWidth) => {
+    const createVerticalTextStrokeCanvas = (text, font, options = {}, maxWidth) => {
         return _createVerticalTextCanvas(text, font, false, true, maxWidth, options);
     }
     
-    const createAllVerticalStrokeTextCanvas = (text, font, options = {}, maxWidth) => {
+    const createAllVerticalTextStrokeCanvas = (text, font, options = {}, maxWidth) => {
         return _createVerticalTextCanvas(text, font, true, true, maxWidth, options);
     }
     
@@ -67,13 +67,13 @@
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = {
             createVerticalTextCanvas, createAllVerticalTextCanvas,
-            createVerticalStrokeTextCanvas, createAllVerticalStrokeTextCanvas
+            createVerticalTextStrokeCanvas, createAllVerticalTextStrokeCanvas
         };
     }
     else if (typeof window !== 'undefined') {
         window.createVerticalTextCanvas = createVerticalTextCanvas;
         window.createAllVerticalTextCanvas = createAllVerticalTextCanvas;
-        window.createVerticalStrokeTextCanvas = createVerticalStrokeTextCanvas;
-        window.createAllVerticalStrokeTextCanvas = createAllVerticalStrokeTextCanvas;
+        window.createVerticalTextStrokeCanvas = createVerticalTextStrokeCanvas;
+        window.createAllVerticalTextStrokeCanvas = createAllVerticalTextStrokeCanvas;
     }
 })();
