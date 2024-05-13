@@ -1,22 +1,22 @@
 
 (() => {
-    const cretaeVerticalTextCanvas = (text, font, options = {}) => {
-        return _cretaeVerticalTextCanvas(text, font, false, false, 0, options);
+    const createVerticalTextCanvas = (text, font, options = {}) => {
+        return _createVerticalTextCanvas(text, font, false, false, 0, options);
     }
     
-    const cretaeAllVerticalTextCanvas = (text, font, options = {}) => {
-        return _cretaeVerticalTextCanvas(text, font, true, false, 0, options);
+    const createAllVerticalTextCanvas = (text, font, options = {}) => {
+        return _createVerticalTextCanvas(text, font, true, false, 0, options);
     }
 
-    const cretaeVerticalStrokeTextCanvas = (text, font, options = {}, maxWidth) => {
-        return _cretaeVerticalTextCanvas(text, font, false, true, maxWidth, options);
+    const createVerticalStrokeTextCanvas = (text, font, options = {}, maxWidth) => {
+        return _createVerticalTextCanvas(text, font, false, true, maxWidth, options);
     }
     
-    const cretaeAllVerticalStrokeTextCanvas = (text, font, options = {}, maxWidth) => {
-        return _cretaeVerticalTextCanvas(text, font, true, true, maxWidth, options);
+    const createAllVerticalStrokeTextCanvas = (text, font, options = {}, maxWidth) => {
+        return _createVerticalTextCanvas(text, font, true, true, maxWidth, options);
     }
     
-    const _cretaeVerticalTextCanvas = (text, font, shouldHankakuVertical, useStrokeText, maxWidth, options) => {
+    const _createVerticalTextCanvas = (text, font, shouldHankakuVertical, useStrokeText, maxWidth, options) => {
         const canvas = document.createElement('canvas');
     
         canvas.style.position = 'fixed';
@@ -66,14 +66,14 @@
 
     if (typeof module !== 'undefined' && module.exports) {
         module.exports = {
-            cretaeVerticalTextCanvas, cretaeAllVerticalTextCanvas,
-            cretaeVerticalStrokeTextCanvas, cretaeAllVerticalStrokeTextCanvas
+            createVerticalTextCanvas, createAllVerticalTextCanvas,
+            createVerticalStrokeTextCanvas, createAllVerticalStrokeTextCanvas
         };
     }
     else if (typeof window !== 'undefined') {
-        window.cretaeVerticalTextCanvas = cretaeVerticalTextCanvas;
-        window.cretaeAllVerticalTextCanvas = cretaeAllVerticalTextCanvas;
-        window.cretaeVerticalStrokeTextCanvas = cretaeVerticalStrokeTextCanvas;
-        window.cretaeAllVerticalStrokeTextCanvas = cretaeAllVerticalStrokeTextCanvas;
+        window.createVerticalTextCanvas = createVerticalTextCanvas;
+        window.createAllVerticalTextCanvas = createAllVerticalTextCanvas;
+        window.createVerticalStrokeTextCanvas = createVerticalStrokeTextCanvas;
+        window.createAllVerticalStrokeTextCanvas = createAllVerticalStrokeTextCanvas;
     }
 })();

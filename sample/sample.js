@@ -4,11 +4,11 @@ const context = canvas.getContext('2d', { willReadFrequently: true });
 
 const font = '400 35px sans-serif';
 
-const image1a = cretaeVerticalStrokeTextCanvas('「ああ～、', font, { strokeStyle: '#00ffff', lineWidth: 1 });
-const image1b = cretaeVerticalTextCanvas('「ああ～、', font, { fillStyle: '#ff0000' });
-const image2 = cretaeVerticalTextCanvas('心がぴょんぴょん', font, { fillStyle: '#00ff00' });
-const image3a = cretaeVerticalStrokeTextCanvas('するんじゃ～。」', font, { strokeStyle: '#ffff00', lineWidth: 1 });
-const image3b = cretaeVerticalTextCanvas('するんじゃ～。」', font, { fillStyle: '#0000ff' });
+const image1a = createVerticalStrokeTextCanvas('「ああ～、', font, { strokeStyle: '#00ffff', lineWidth: 1 });
+const image1b = createVerticalTextCanvas('「ああ～、', font, { fillStyle: '#ff0000' });
+const image2 = createVerticalTextCanvas('心がぴょんぴょん', font, { fillStyle: '#00ff00' });
+const image3a = createVerticalStrokeTextCanvas('するんじゃ～。」', font, { strokeStyle: '#ffff00', lineWidth: 1 });
+const image3b = createVerticalTextCanvas('するんじゃ～。」', font, { fillStyle: '#0000ff' });
 
 canvas.width = 400;
 canvas.height = 400;
