@@ -66,7 +66,7 @@ context.drawImage(vTextcanvas, 0, 0);
 |-|-|-|
 |text|string|縦書きにしたい文字列|
 |font|string|太さ、大きさ、フォントファミリーの文字列<br>例：`'400 40px sans-serif'`|
-|options|object (省略可)|canvasのcontextに適応させたい設定など<br>例：`{ fillStyle: '#ff0000' }`|
+|options|object (省略可)|canvasのcontextに適応させたい設定など<br>例：`{ strokeStyle: '#00ff00', lineWidth: 3 }`|
 |maxWidth|number (省略可)|テキストを描画する際の最大幅。<br>CanvasRenderingContext2D:strokeTextメソッドの第3引数で使う。|
 
 #### 戻り値
