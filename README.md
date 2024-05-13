@@ -2,6 +2,20 @@
 
 テキストが縦書きされたキャンバスを生成するライブラリ
 
+## ブラウザで使いたい場合
+
+`vertical_text_canvas.js`を使ってください。
+
+## npmで使いたい場合
+
+```
+npm i @mogamoga1024/vertical-text-canvas
+```
+
+```js
+import { createVerticalTextCanvas, createAllVerticalTextCanvas, createVerticalTextStrokeCanvas, createAllVerticalTextStrokeCanvas } from '@mogamoga1024/vertical-text-canvas';
+```
+
 ## 使い方
 
 ### createVerticalTextCanvas(text, font, options)
