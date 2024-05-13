@@ -2,6 +2,12 @@
 
 テキストが縦書きされたキャンバスを生成するライブラリ
 
+## npm
+
+```
+npm i @mogamoga1024/vertical-text-canvas
+```
+
 ## 使い方
 
 ### createVerticalTextCanvas(text, font, options)
