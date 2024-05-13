@@ -1,2 +1,2 @@
-# TategakiCanvas
+# VerticalCanvas
 縦書きできるキャンバス

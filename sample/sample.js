@@ -1,16 +1,16 @@
 
-const canvas = document.querySelector('#tategaki-canvas');
+const canvas = document.querySelector('#Vertical-canvas');
 const context = canvas.getContext('2d', { willReadFrequently: true });
 
 const font = '400 30px sans-serif';
 
-const image1 = cretaeTategakiCanvas('「ああ～、', font);
-const image2 = cretaeTategakiCanvas('心がぴょんぴょん', font);
-const image3 = cretaeTategakiCanvas('するんじゃ～。」', font);
+const image1 = cretaeVerticalCanvas('「ああ～、', font, { fillStyle: '#ff0000', strokeStyle: '#000000', lineWidth: 10 });
+const image2 = cretaeVerticalCanvas('心がぴょんぴょん', font, { fillStyle: '#00ff00' });
+const image3 = cretaeVerticalCanvas('するんじゃ～。」', font, { fillStyle: '#0000ff' });
 
 canvas.width = 400;
 canvas.height = 400;
-context.fillStyle = '#98fb98';
+context.fillStyle = '#eeeeee';
 context.fillRect(0, 0, canvas.width, canvas.height);
 context.drawImage(image1, canvas.width * 3 / 4 - image1.width / 2, 10);
 context.drawImage(image2, canvas.width / 2 - image2.width / 2, canvas.height / 2 - image2.height / 2);
