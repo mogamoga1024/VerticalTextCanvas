@@ -6,6 +6,12 @@
 
 `vertical_text_canvas.js`を使ってください。
 
+## CDNで使いたい場合
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@mogamoga1024/vertical-text-canvas@latest/vertical_text_canvas.min.js"></script>
+```
+
 ## npmで使いたい場合
 
 ```
