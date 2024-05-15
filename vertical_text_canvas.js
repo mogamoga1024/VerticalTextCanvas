@@ -72,8 +72,16 @@
         const textWidth = measure.width;
         const textHeight = Math.abs(measure.actualBoundingBoxAscent) + measure.actualBoundingBoxDescent;
     
-        canvas.width = textHeight;
+        let lineWidth = 0;
+        if (useStrokeText && options?.lineWidth !== undefined) {
+            lineWidth = options.lineWidth;
+        }
+        canvas.width = textHeight + lineWidth;
         canvas.height = textWidth;
+        // debug start
+        context.fillStyle = '#eeeeee';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        // debug end
         context.rotate(Math.PI / 2);
     
         context.font = font;
@@ -81,10 +89,10 @@
         Object.assign(context, options);
         if (useStrokeText) {
             if (maxWidth !== undefined) {
-                context.strokeText(text, 0, -textHeight / 2, maxWidth);
+                context.strokeText(text, 0, -textHeight / 2 - lineWidth / 2, maxWidth);
             }
             else {
-                context.strokeText(text, 0, -textHeight / 2);
+                context.strokeText(text, 0, -textHeight / 2 - lineWidth / 2);
             }
         }
         else {
