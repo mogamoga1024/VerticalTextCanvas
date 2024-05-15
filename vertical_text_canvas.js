@@ -1,19 +1,19 @@
 
 (() => {
-    const createVerticalTextCanvas = (text, font, options = {}) => {
-        return _createVerticalTextCanvas(text, font, false, false, 0, options);
+    const createVerticalTextCanvas = (text, font, options = {}, maxWidth) => {
+        return _createVerticalTextCanvas(text, font, false, false, options, maxWidth);
     };
     
-    const createAllVerticalTextCanvas = (text, font, options = {}) => {
-        return _createVerticalTextCanvas(text, font, true, false, 0, options);
+    const createAllVerticalTextCanvas = (text, font, options = {}, maxWidth) => {
+        return _createVerticalTextCanvas(text, font, true, false, options, maxWidth);
     };
 
     const createVerticalTextStrokeCanvas = (text, font, options = {}, maxWidth) => {
-        return _createVerticalTextCanvas(text, font, false, true, maxWidth, options);
+        return _createVerticalTextCanvas(text, font, false, true, options, maxWidth);
     };
     
     const createAllVerticalTextStrokeCanvas = (text, font, options = {}, maxWidth) => {
-        return _createVerticalTextCanvas(text, font, true, true, maxWidth, options);
+        return _createVerticalTextCanvas(text, font, true, true, options, maxWidth);
     };
 
     const measureVerticalTextCanvasSize = (text, font, options = {}) => {
@@ -53,16 +53,20 @@
         Object.assign(context, options);
         const measure = context.measureText(text);
 
+        let lineWidth = 0;
+        if (options?.lineWidth !== undefined) {
+            lineWidth = options.lineWidth;
+        }
         // 90度回転させるため縦横が入れ替わる
-        const height = measure.width;
-        const width = Math.abs(measure.actualBoundingBoxAscent) + measure.actualBoundingBoxDescent;
+        const height = measure.width + lineWidth;
+        const width = Math.abs(measure.actualBoundingBoxAscent) + measure.actualBoundingBoxDescent + lineWidth;
         
         removeCanvas(canvas);
 
         return { width, height };
     };
     
-    const _createVerticalTextCanvas = (text, font, shouldHankakuVertical, useStrokeText, maxWidth, options) => {
+    const _createVerticalTextCanvas = (text, font, shouldHankakuVertical, isOnlyStrokeText, options, maxWidth) => {
         const canvas = appendCanvas(shouldHankakuVertical);
         const context = canvas.getContext('2d');
         context.font = font;
@@ -73,7 +77,7 @@
         const textHeight = Math.abs(measure.actualBoundingBoxAscent) + measure.actualBoundingBoxDescent;
     
         let lineWidth = 0;
-        if (useStrokeText && options?.lineWidth !== undefined) {
+        if (options?.lineWidth !== undefined) {
             lineWidth = options.lineWidth;
         }
         canvas.width = textHeight + lineWidth;
@@ -83,16 +87,23 @@
         context.font = font;
         context.textBaseline = 'middle';
         Object.assign(context, options);
-        if (useStrokeText) {
-            if (maxWidth !== undefined) {
-                context.strokeText(text, lineWidth / 2, -textHeight / 2 - lineWidth / 2, maxWidth);
+        const x = lineWidth / 2;
+        const y = -textHeight / 2 - lineWidth / 2;
+        if (maxWidth !== undefined) {
+            if (!isOnlyStrokeText) {
+                context.fillText(text, x, y, maxWidth);
             }
-            else {
-                context.strokeText(text, lineWidth / 2, -textHeight / 2 - lineWidth / 2);
+            if (lineWidth !== 0) {
+                context.strokeText(text, x, y, maxWidth);
             }
         }
         else {
-            context.fillText(text, 0, -textHeight / 2);
+            if (!isOnlyStrokeText) {
+                context.fillText(text, x, y);
+            }
+            if (lineWidth !== 0) {
+                context.strokeText(text, x, y);
+            }
         }
     
         removeCanvas(canvas);
