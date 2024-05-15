@@ -77,18 +77,18 @@
         context.rotate(Math.PI / 2);
     
         context.font = font;
-        context.textBaseline = 'top';
+        context.textBaseline = 'middle';
         Object.assign(context, options);
         if (useStrokeText) {
             if (maxWidth !== undefined) {
-                context.strokeText(text, 0, -textHeight, maxWidth);
+                context.strokeText(text, 0, -textHeight / 2, maxWidth);
             }
             else {
-                context.strokeText(text, 0, -textHeight);
+                context.strokeText(text, 0, -textHeight / 2);
             }
         }
         else {
-            context.fillText(text, 0, -textHeight);
+            context.fillText(text, 0, -textHeight / 2);
         }
     
         removeCanvas(canvas);
