@@ -52,7 +52,8 @@ import { createVerticalTextCanvas } from '@mogamoga1024/vertical-text-canvas';
 
 `Canvas`
 
-備考：width, heightは引数のtextを表示可能な最小限のサイズ
+備考：戻り値のCanvasのwidth, heightは引数のtextを表示可能な最小限のサイズ  
+maxHeightとoptions.lineWidthの両方を引数で定義すると戻り値のcanvas.heightはmaxHeight + options.lineWidthになります。
 
 #### 備考
 
@@ -108,7 +109,8 @@ context.drawImage(vTextcanvas, 0, 0);
 
 `Canvas`
 
-備考：width, heightは引数のtextを表示可能な最小限のサイズ
+備考：戻り値のCanvasのwidth, heightは引数のtextを表示可能な最小限のサイズ  
+maxHeightとoptions.lineWidthの両方を引数で定義すると戻り値のcanvas.heightはmaxHeight + options.lineWidthになります。
 
 #### 使用例
 
