@@ -4,9 +4,9 @@ const context = canvas.getContext('2d', { willReadFrequently: true });
 
 const font = '900 40px serif';
 
-const image1 = createVerticalTextCanvas('123 Lemon', font, { fillStyle: '#ff0000', strokeStyle: '#00ffff', lineWidth: 0.8 });
+const image1 = createVerticalTextCanvas('123 Lemon', font, { fillStyle: '#00ffff', strokeStyle: '#ff0000', lineWidth: 0.8 });
 const image2 = createAllVerticalTextCanvas('456 Soda', font, { fillStyle: '#00ff00' });
-const image3 = createAllVerticalTextCanvas('Chocolate', font, { fillStyle: '#0000ff', strokeStyle: '#ffff00', lineWidth: 0.8 });
+const image3 = createAllVerticalTextStrokeCanvas('Chocolate', font, { strokeStyle: '#0000ff', lineWidth: 0.8 });
 
 canvas.width = 400;
 canvas.height = 400;

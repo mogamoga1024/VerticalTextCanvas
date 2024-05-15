@@ -1,19 +1,19 @@
 
 (() => {
     const createVerticalTextCanvas = (text, font, options = {}, maxWidth) => {
-        return _createVerticalTextCanvas(text, font, false, false, options, maxWidth);
-    };
-    
-    const createAllVerticalTextCanvas = (text, font, options = {}, maxWidth) => {
-        return _createVerticalTextCanvas(text, font, true, false, options, maxWidth);
-    };
-
-    const createVerticalTextStrokeCanvas = (text, font, options = {}, maxWidth) => {
         return _createVerticalTextCanvas(text, font, false, true, options, maxWidth);
     };
     
-    const createAllVerticalTextStrokeCanvas = (text, font, options = {}, maxWidth) => {
+    const createAllVerticalTextCanvas = (text, font, options = {}, maxWidth) => {
         return _createVerticalTextCanvas(text, font, true, true, options, maxWidth);
+    };
+
+    const createVerticalTextStrokeCanvas = (text, font, options = {}, maxWidth) => {
+        return _createVerticalTextCanvas(text, font, false, false, options, maxWidth);
+    };
+    
+    const createAllVerticalTextStrokeCanvas = (text, font, options = {}, maxWidth) => {
+        return _createVerticalTextCanvas(text, font, true, false, options, maxWidth);
     };
 
     const measureVerticalTextCanvasSize = (text, font, options = {}) => {
@@ -66,7 +66,7 @@
         return { width, height };
     };
     
-    const _createVerticalTextCanvas = (text, font, shouldHankakuVertical, isOnlyStrokeText, options, maxWidth) => {
+    const _createVerticalTextCanvas = (text, font, shouldHankakuVertical, useFillText, options, maxWidth) => {
         const canvas = appendCanvas(shouldHankakuVertical);
         const context = canvas.getContext('2d');
         context.font = font;
@@ -90,7 +90,7 @@
         const x = lineWidth / 2;
         const y = -textHeight / 2 - lineWidth / 2;
         if (maxWidth !== undefined) {
-            if (!isOnlyStrokeText) {
+            if (useFillText) {
                 context.fillText(text, x, y, maxWidth);
             }
             if (lineWidth !== 0) {
@@ -98,7 +98,7 @@
             }
         }
         else {
-            if (!isOnlyStrokeText) {
+            if (useFillText) {
                 context.fillText(text, x, y);
             }
             if (lineWidth !== 0) {
