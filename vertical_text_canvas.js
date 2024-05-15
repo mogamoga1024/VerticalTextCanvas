@@ -1,19 +1,19 @@
 
 (() => {
-    const createVerticalTextCanvas = (text, font, options = {}, maxWidth) => {
-        return _createVerticalTextCanvas(text, font, false, true, options, maxWidth);
+    const createVerticalTextCanvas = (text, font, options = {}, maxHeight) => {
+        return _createVerticalTextCanvas(text, font, false, true, options, maxHeight);
     };
     
-    const createAllVerticalTextCanvas = (text, font, options = {}, maxWidth) => {
-        return _createVerticalTextCanvas(text, font, true, true, options, maxWidth);
+    const createAllVerticalTextCanvas = (text, font, options = {}, maxHeight) => {
+        return _createVerticalTextCanvas(text, font, true, true, options, maxHeight);
     };
 
-    const createVerticalTextStrokeCanvas = (text, font, options = {}, maxWidth) => {
-        return _createVerticalTextCanvas(text, font, false, false, options, maxWidth);
+    const createVerticalTextStrokeCanvas = (text, font, options = {}, maxHeight) => {
+        return _createVerticalTextCanvas(text, font, false, false, options, maxHeight);
     };
     
-    const createAllVerticalTextStrokeCanvas = (text, font, options = {}, maxWidth) => {
-        return _createVerticalTextCanvas(text, font, true, false, options, maxWidth);
+    const createAllVerticalTextStrokeCanvas = (text, font, options = {}, maxHeight) => {
+        return _createVerticalTextCanvas(text, font, true, false, options, maxHeight);
     };
 
     const measureVerticalTextCanvasSize = (text, font, options = {}) => {
@@ -66,7 +66,7 @@
         return { width, height };
     };
     
-    const _createVerticalTextCanvas = (text, font, shouldHankakuVertical, useFillText, options, maxWidth) => {
+    const _createVerticalTextCanvas = (text, font, shouldHankakuVertical, useFillText, options, maxHeight) => {
         const canvas = appendCanvas(shouldHankakuVertical);
         const context = canvas.getContext('2d');
         context.font = font;
@@ -89,12 +89,12 @@
         Object.assign(context, options);
         const x = lineWidth / 2;
         const y = -textHeight / 2 - lineWidth / 2;
-        if (maxWidth !== undefined) {
+        if (maxHeight !== undefined) {
             if (useFillText) {
-                context.fillText(text, x, y, maxWidth);
+                context.fillText(text, x, y, maxHeight);
             }
             if (lineWidth !== 0) {
-                context.strokeText(text, x, y, maxWidth);
+                context.strokeText(text, x, y, maxHeight);
             }
         }
         else {
