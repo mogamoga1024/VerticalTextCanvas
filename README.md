@@ -33,7 +33,7 @@ import { createVerticalTextCanvas } from '@mogamoga1024/vertical-text-canvas';
 
 ## 関数リファレンス
 
-### createVerticalTextCanvas(text, font, options)
+### createVerticalTextCanvas(text, font, options, maxWidth)
 
 引数のテキストが縦書きされたキャンバスを返します。  
 ただし半角文字は横書きされます。
@@ -45,6 +45,7 @@ import { createVerticalTextCanvas } from '@mogamoga1024/vertical-text-canvas';
 |text|string|縦書きにしたい文字列|
 |font|string|太さ、大きさ、フォントファミリーの文字列<br>例：`'400 40px sans-serif'`|
 |options|object (省略可)|canvasのcontextに適応させたい設定など<br>例：`{ fillStyle: '#ff0000' }`|
+|maxWidth|number (省略可)|テキストを描画する際の最大幅。<br>CanvasRenderingContext2D:fillTextメソッドの第4引数で使う。|
 
 #### 戻り値
 
@@ -55,7 +56,9 @@ import { createVerticalTextCanvas } from '@mogamoga1024/vertical-text-canvas';
 ### 備考
 
 半角文字は縦書きになりません。  
-縦書きにしたい場合は`createAllVerticalTextCanvas`関数を使ってください。
+縦書きにしたい場合は`createAllVerticalTextCanvas`関数を使ってください。  
+
+引数のoptionsにlineWidthプロパティを定義すると輪郭が追加されます。
 
 #### 使用例
 
@@ -64,7 +67,7 @@ const vTextcanvas = createVerticalTextCanvas('はろー', '400 40px sans-serif',
 context.drawImage(vTextcanvas, 0, 0);
 ```
 
-### createAllVerticalTextCanvas(text, font, options)
+### createAllVerticalTextCanvas(text, font, options, maxWidth)
 
 引数のテキストが縦書きされたキャンバスを返します。  
 半角文字も縦書きされます。
@@ -76,6 +79,10 @@ context.drawImage(vTextcanvas, 0, 0);
 #### 戻り値
 
 `createVerticalTextCanvas`関数と同じ
+
+### 備考
+
+引数のoptionsにlineWidthプロパティを定義すると輪郭が追加されます。
 
 #### 使用例
 
@@ -96,7 +103,7 @@ context.drawImage(vTextcanvas, 0, 0);
 |text|string|縦書きにしたい文字列|
 |font|string|太さ、大きさ、フォントファミリーの文字列<br>例：`'400 40px sans-serif'`|
 |options|object (省略可)|canvasのcontextに適応させたい設定など<br>例：`{ strokeStyle: '#00ff00', lineWidth: 3 }`|
-|maxWidth|number (省略可)|テキストを描画する際の最大幅。<br>CanvasRenderingContext2D:strokeTextメソッドの第3引数で使う。|
+|maxWidth|number (省略可)|テキストを描画する際の最大幅。<br>CanvasRenderingContext2D:strokeTextメソッドの第4引数で使う。|
 
 #### 戻り値
 
