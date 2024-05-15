@@ -48,7 +48,7 @@ import { createVerticalTextCanvas } from '@mogamoga1024/vertical-text-canvas';
 
 #### 戻り値
 
-Canvas
+`Canvas`
 
 備考：width, heightは引数のtextを表示可能な最小限のサイズ
 
@@ -100,7 +100,7 @@ context.drawImage(vTextcanvas, 0, 0);
 
 #### 戻り値
 
-Canvas
+`Canvas`
 
 備考：width, heightは引数のtextを表示可能な最小限のサイズ
 
@@ -134,6 +134,48 @@ context.drawImage(vTextcanvas, 0, 0);
 ```js:例
 const vTextcanvas = createAllVerticalTextStrokeCanvas('123 Hello', '400 40px sans-serif', { strokeStyle: '#00ff00', lineWidth: 3 });
 context.drawImage(vTextcanvas, 0, 0);
+```
+
+### measureVerticalTextCanvasSize(text, font, options)
+
+`createVerticalTextCanvas`関数で生成されるキャンバスのwidthとheightを返します。
+
+#### 引数
+
+|名称|型|説明|
+|-|-|-|
+|text|string|縦書きにしたい文字列|
+|font|string|太さ、大きさ、フォントファミリーの文字列<br>例：`'400 40px sans-serif'`|
+|options|object (省略可)|canvasのcontextに適応させたい設定など<br>例：`{ letterSpacing: '10px' }`|
+
+#### 戻り値
+
+`{ width: キャンバスのwidth, height: キャンバスのheight }`
+
+#### 使用例
+
+```js:例
+const vTextcanvasSize = measureVerticalTextCanvasSize('はろー', '400 40px sans-serif', { letterSpacing: '10px' });
+console.log(vTextcanvasSize.width, vTextcanvasSize.height);
+```
+
+### measureAllVerticalTextCanvasSize(text, font, options)
+
+`createAllVerticalTextCanvas`関数で生成されるキャンバスのwidthとheightを返します。
+
+#### 引数
+
+`measureVerticalTextCanvasSize`関数と同じ
+
+#### 戻り値
+
+`measureVerticalTextCanvasSize`関数と同じ
+
+#### 使用例
+
+```js:例
+const vTextcanvasSize = measureAllVerticalTextCanvasSize('123 Hello', '400 40px sans-serif', { letterSpacing: '10px' });
+console.log(vTextcanvasSize.width, vTextcanvasSize.height);
 ```
 
 ## 無理なこと
