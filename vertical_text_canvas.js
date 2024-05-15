@@ -16,12 +16,12 @@
         return _createVerticalTextCanvas(text, font, true, false, options, maxHeight);
     };
 
-    const measureVerticalTextCanvasSize = (text, font, options = {}) => {
-        return _measureVerticalTextCanvasSize(text, font, false, options);
+    const measureVerticalTextCanvasSize = (text, font, options = {}, maxHeight) => {
+        return _measureVerticalTextCanvasSize(text, font, false, options, maxHeight);
     };
 
-    const measureAllVerticalTextCanvasSize = (text, font, options = {}) => {
-        return _measureVerticalTextCanvasSize(text, font, true, options);
+    const measureAllVerticalTextCanvasSize = (text, font, options = {}, maxHeight) => {
+        return _measureVerticalTextCanvasSize(text, font, true, options, maxHeight);
     };
 
     const appendCanvas = (shouldHankakuVertical) => {
@@ -45,7 +45,7 @@
         canvas.style.writingMode = '';
     };
 
-    const _measureVerticalTextCanvasSize = (text, font, shouldHankakuVertical, options = {}) => {
+    const _measureVerticalTextCanvasSize = (text, font, shouldHankakuVertical, options = {}, maxHeight) => {
         const canvas = appendCanvas(shouldHankakuVertical);
         const context = canvas.getContext('2d');
         context.font = font;
@@ -58,7 +58,7 @@
             lineWidth = options.lineWidth;
         }
         // 90度回転させるため縦横が入れ替わる
-        const height = measure.width + lineWidth;
+        const height = Math.min(measure.width, maxHeight !== undefined ? maxHeight : Infinity) + lineWidth;
         const width = Math.abs(measure.actualBoundingBoxAscent) + measure.actualBoundingBoxDescent + lineWidth;
         
         removeCanvas(canvas);
@@ -73,7 +73,7 @@
         context.textBaseline = 'top';
         Object.assign(context, options);
         const measure = context.measureText(text);
-        const textWidth = measure.width;
+        const textWidth = Math.min(measure.width, maxHeight !== undefined ? maxHeight : Infinity);
         const textHeight = Math.abs(measure.actualBoundingBoxAscent) + measure.actualBoundingBoxDescent;
     
         let lineWidth = 0;
