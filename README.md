@@ -2,27 +2,36 @@
 
 テキストが縦書きされたキャンバスを生成するライブラリ
 
-## ブラウザで使いたい場合
+## サンプル
+
+[普通の日本語](https://mogamoga1024.github.io/VerticalTextCanvas/sample/sample1.html)  
+[半角文字](https://mogamoga1024.github.io/VerticalTextCanvas/sample/sample2.html)
+
+## ダウンロード方法
+
+### ファイルが欲しい場合
 
 `vertical_text_canvas.js`を使ってください。
 
-## CDNで使いたい場合
+### CDNで使いたい場合
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@mogamoga1024/vertical-text-canvas@latest/vertical_text_canvas.min.js"></script>
 ```
 
-## npmで使いたい場合
+### npmで使いたい場合
 
 ```
 npm i @mogamoga1024/vertical-text-canvas
 ```
 
 ```js
-import { createVerticalTextCanvas, createAllVerticalTextCanvas, createVerticalTextStrokeCanvas, createAllVerticalTextStrokeCanvas } from '@mogamoga1024/vertical-text-canvas';
+import { createVerticalTextCanvas } from '@mogamoga1024/vertical-text-canvas';
 ```
 
-## 使い方
+使いたい関数をimportしてください。
+
+## 関数リファレンス
 
 ### createVerticalTextCanvas(text, font, options)
 
@@ -126,11 +135,6 @@ context.drawImage(vTextcanvas, 0, 0);
 const vTextcanvas = createAllVerticalTextStrokeCanvas('123 Hello', '400 40px sans-serif', { strokeStyle: '#00ff00', lineWidth: 3 });
 context.drawImage(vTextcanvas, 0, 0);
 ```
-
-## サンプル
-
-[普通の日本語](https://mogamoga1024.github.io/VerticalTextCanvas/sample/sample1.html)  
-[半角英字](https://mogamoga1024.github.io/VerticalTextCanvas/sample/sample2.html)
 
 ## 無理なこと
 
