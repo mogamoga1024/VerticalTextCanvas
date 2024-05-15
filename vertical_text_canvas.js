@@ -77,11 +77,7 @@
             lineWidth = options.lineWidth;
         }
         canvas.width = textHeight + lineWidth;
-        canvas.height = textWidth;
-        // debug start
-        context.fillStyle = '#eeeeee';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        // debug end
+        canvas.height = textWidth + lineWidth;
         context.rotate(Math.PI / 2);
     
         context.font = font;
@@ -89,10 +85,10 @@
         Object.assign(context, options);
         if (useStrokeText) {
             if (maxWidth !== undefined) {
-                context.strokeText(text, 0, -textHeight / 2 - lineWidth / 2, maxWidth);
+                context.strokeText(text, lineWidth / 2, -textHeight / 2 - lineWidth / 2, maxWidth);
             }
             else {
-                context.strokeText(text, 0, -textHeight / 2 - lineWidth / 2);
+                context.strokeText(text, lineWidth / 2, -textHeight / 2 - lineWidth / 2);
             }
         }
         else {
