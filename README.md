@@ -53,7 +53,7 @@ import { createVerticalTextCanvas } from '@mogamoga1024/vertical-text-canvas';
 
 備考：width, heightは引数のtextを表示可能な最小限のサイズ
 
-### 備考
+#### 備考
 
 半角文字は縦書きになりません。  
 縦書きにしたい場合は`createAllVerticalTextCanvas`関数を使ってください。  
@@ -80,7 +80,7 @@ context.drawImage(vTextcanvas, 0, 0);
 
 `createVerticalTextCanvas`関数と同じ
 
-### 備考
+#### 備考
 
 引数のoptionsにlineWidthプロパティを定義すると輪郭が追加されます。
 
@@ -111,7 +111,7 @@ context.drawImage(vTextcanvas, 0, 0);
 
 備考：width, heightは引数のtextを表示可能な最小限のサイズ
 
-### 備考
+#### 備考
 
 半角文字は縦書きになりません。  
 縦書きにしたい場合は`createAllVerticalTextStrokeCanvas`関数を使ってください。
