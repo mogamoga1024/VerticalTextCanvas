@@ -45,19 +45,18 @@ import { createVerticalTextCanvas } from '@mogamoga1024/vertical-text-canvas';
 |-|-|-|
 |text|string|縦書きにしたい文字列|
 |font|string|太さ、大きさ、フォントファミリーの文字列<br>例：`'400 40px sans-serif'`|
-|options|object (省略可)|canvasのcontextに適応させたい設定など<br>例：`{ fillStyle: '#ff0000' }`|
+|options|object (省略可)|canvasのcontextに適応させたい設定など<br>また、lineWidthプロパティを定義すると輪郭が追加されます。<br>例：`{ fillStyle: '#ff0000' }`|
 |maxHeight|number (省略可)|テキストを描画する際の最大高さ。<br>CanvasRenderingContext2D:fillTextメソッドの第4引数で使う。|
 
 #### 戻り値
 
 `Canvas`
 
-備考：戻り値のCanvasのwidth, heightは引数のtextを表示可能な最小限のサイズ  
+##### 補足
+
+戻り値のCanvasのwidth, heightは引数のtextを表示可能な最小限のサイズ  
+
 maxHeightとoptions.lineWidthの両方を引数で定義すると戻り値のcanvas.heightはmaxHeight + options.lineWidthになります。
-
-#### 備考
-
-引数のoptionsにlineWidthプロパティを定義すると輪郭が追加されます。
 
 #### 使用例
 
@@ -78,10 +77,6 @@ context.drawImage(vTextcanvas, 0, 0);
 #### 戻り値
 
 `createVerticalTextCanvas`関数と同じ
-
-#### 備考
-
-引数のoptionsにlineWidthプロパティを定義すると輪郭が追加されます。
 
 #### 使用例
 
@@ -109,7 +104,10 @@ context.drawImage(vTextcanvas, 0, 0);
 
 `Canvas`
 
-備考：戻り値のCanvasのwidth, heightは引数のtextを表示可能な最小限のサイズ  
+##### 補足
+
+戻り値のCanvasのwidth, heightは引数のtextを表示可能な最小限のサイズ  
+
 maxHeightとoptions.lineWidthの両方を引数で定義すると戻り値のcanvas.heightはmaxHeight + options.lineWidthになります。
 
 #### 使用例
