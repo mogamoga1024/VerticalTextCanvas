@@ -85,18 +85,14 @@
         canvas.width = textHeight + lineWidth;
         canvas.height = textWidth + lineWidth;
 
-        // debug
-        context.fillStyle = '#ff0000';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-
         if (!isFirefox) {
             context.rotate(Math.PI / 2);
         }
     
         context.font = font;
-        context.textBaseline = isFirefox ? 'bottom' : 'middle';
+        context.textBaseline = 'middle';
         Object.assign(context, options);
-        const x = lineWidth / 2;
+        const x = isFirefox ? canvas.width / 2 + lineWidth / 2 : lineWidth / 2;
         const y = isFirefox ? lineWidth / 2 : -textHeight / 2 - lineWidth / 2;
         const args = [text, x, y];
         if (maxHeight !== undefined) {
