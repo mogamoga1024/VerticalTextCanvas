@@ -59,7 +59,7 @@
         }
         // 90度回転させるため縦横が入れ替わる
         const height = Math.min(measure.width, maxHeight !== undefined ? maxHeight : Infinity) + lineWidth;
-        const width = Math.abs(measure.actualBoundingBoxAscent) + measure.actualBoundingBoxDescent + lineWidth;
+        const width = measure.fontBoundingBoxAscent + measure.fontBoundingBoxDescent + lineWidth;
         
         removeCanvas(canvas);
 
@@ -67,6 +67,8 @@
     };
     
     const _createVerticalTextCanvas = (text, font, shouldHankakuVertical, useFillText, options, maxHeight) => {
+        const isFirefox = /^.*Firefox.*$/.test(window.navigator.userAgent);
+
         const canvas = appendCanvas(shouldHankakuVertical);
         const context = canvas.getContext('2d');
         context.font = font;
@@ -74,21 +76,28 @@
         Object.assign(context, options);
         const measure = context.measureText(text);
         const textWidth = Math.min(measure.width, maxHeight !== undefined ? maxHeight : Infinity);
-        const textHeight = Math.abs(measure.actualBoundingBoxAscent) + measure.actualBoundingBoxDescent;
-    
+        const textHeight = measure.fontBoundingBoxAscent + measure.fontBoundingBoxDescent;
+
         let lineWidth = 0;
         if (options?.lineWidth !== undefined) {
             lineWidth = options.lineWidth;
         }
         canvas.width = textHeight + lineWidth;
         canvas.height = textWidth + lineWidth;
-        context.rotate(Math.PI / 2);
+
+        // debug
+        context.fillStyle = '#ff0000';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        if (!isFirefox) {
+            context.rotate(Math.PI / 2);
+        }
     
         context.font = font;
-        context.textBaseline = 'middle';
+        context.textBaseline = isFirefox ? 'bottom' : 'middle';
         Object.assign(context, options);
         const x = lineWidth / 2;
-        const y = -textHeight / 2 - lineWidth / 2;
+        const y = isFirefox ? lineWidth / 2 : -textHeight / 2 - lineWidth / 2;
         const args = [text, x, y];
         if (maxHeight !== undefined) {
             args.push(maxHeight);
