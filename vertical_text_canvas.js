@@ -89,21 +89,15 @@
         Object.assign(context, options);
         const x = lineWidth / 2;
         const y = -textHeight / 2 - lineWidth / 2;
+        const args = [text, x, y];
         if (maxHeight !== undefined) {
-            if (useFillText) {
-                context.fillText(text, x, y, maxHeight);
-            }
-            if (lineWidth !== 0) {
-                context.strokeText(text, x, y, maxHeight);
-            }
+            args.push(maxHeight);
         }
-        else {
-            if (useFillText) {
-                context.fillText(text, x, y);
-            }
-            if (lineWidth !== 0) {
-                context.strokeText(text, x, y);
-            }
+        if (useFillText) {
+            context.fillText(...args);
+        }
+        if (lineWidth !== 0) {
+            context.strokeText(...args);
         }
     
         removeCanvas(canvas);
