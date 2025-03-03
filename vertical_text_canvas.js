@@ -75,7 +75,7 @@
         context.textBaseline = 'top';
         Object.assign(context, options);
         const measure = context.measureText(text);
-        const textWidth = Math.min(measure.width, maxHeight !== undefined ? maxHeight : Infinity);
+        const textWidth = Math.min(measure.width, !isFirefox && maxHeight !== undefined ? maxHeight : Infinity);
         const textHeight = measure.fontBoundingBoxAscent + measure.fontBoundingBoxDescent;
 
         let lineWidth = 0;
@@ -95,7 +95,7 @@
         const x = isFirefox ? canvas.width / 2 + lineWidth / 2 : lineWidth / 2;
         const y = isFirefox ? lineWidth / 2 : -textHeight / 2 - lineWidth / 2;
         const args = [text, x, y];
-        if (maxHeight !== undefined) {
+        if (!isFirefox && maxHeight !== undefined) {
             args.push(maxHeight);
         }
         if (useFillText) {
@@ -103,6 +103,21 @@
         }
         if (lineWidth !== 0) {
             context.strokeText(...args);
+        }
+
+        if (isFirefox && maxHeight !== undefined) {
+            const tmpCanvas = new OffscreenCanvas(canvas.width, canvas.height);
+            const tmpContext = tmpCanvas.getContext("2d");
+            tmpContext.drawImage(canvas, 0, 0);
+
+            const textHeight = Math.min(measure.width, maxHeight);
+            canvas.height = textHeight + lineWidth;
+
+            context.drawImage(
+                tmpCanvas,
+                0, 0, tmpCanvas.width, tmpCanvas.height,
+                0, 0, canvas.width, canvas.height
+            ); 
         }
     
         removeCanvas(canvas);
