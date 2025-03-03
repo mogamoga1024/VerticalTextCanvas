@@ -180,6 +180,10 @@ const vTextcanvasSize = measureAllVerticalTextCanvasSize('123 Hello', '400 40px 
 console.log(vTextcanvasSize.width, vTextcanvasSize.height);
 ```
 
+## バグ
+
+リファレンスに書かれている関数の引数にあるmaxHeightを指定した場合、Firefoxでは正しく機能しませんが、省略した場合は問題はありません。
+
 ## 無理なこと
 
 CSSを適用させる必要があるため、WebWorker内で使えないと思われます。
