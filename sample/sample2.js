@@ -8,6 +8,10 @@ const image1 = createVerticalTextCanvas('123 Lemon', font, { fillStyle: '#00ffff
 const image2 = createAllVerticalTextCanvas('456 Soda', font, { fillStyle: '#00ff00' });
 const image3 = createAllVerticalTextStrokeCanvas('Chocolate', font, { strokeStyle: '#0000ff', lineWidth: 5 }, 150);
 
+console.log(measureVerticalTextCanvasSize('123 Lemon', font, { fillStyle: '#00ffff', strokeStyle: '#ff0000', lineWidth: 0.8 }));
+console.log(measureAllVerticalTextCanvasSize('456 Soda', font, { fillStyle: '#00ff00' }));
+console.log(measureAllVerticalTextCanvasSize('Chocolate', font, { strokeStyle: '#0000ff', lineWidth: 5 }, 150));
+
 canvas.width = 400;
 canvas.height = 400;
 context.fillStyle = '#eeeeee';

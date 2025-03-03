@@ -8,6 +8,10 @@ const image1 = createVerticalTextCanvas('「ああ～、', font, { fillStyle: '#
 const image2 = createVerticalTextCanvas('心がぴょんぴょん', font, { fillStyle: '#00ff00' });
 const image3 = createVerticalTextStrokeCanvas('するんじゃ～。」', font, { strokeStyle: '#0000ff', lineWidth: 5 }, 200);
 
+console.log(measureVerticalTextCanvasSize('「ああ～、', font, { fillStyle: '#00ffff', strokeStyle: '#ff0000', lineWidth: 1 }));
+console.log(measureVerticalTextCanvasSize('心がぴょんぴょん', font, { fillStyle: '#00ff00' }));
+console.log(measureVerticalTextCanvasSize('するんじゃ～。」', font, { strokeStyle: '#0000ff', lineWidth: 5 }, 200));
+
 canvas.width = 400;
 canvas.height = 400;
 context.fillStyle = '#eeeeee';
