@@ -1,6 +1,6 @@
 {
   "name": "@mogamoga1024/vertical-text-canvas",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "テキストが縦書きされたキャンバスを生成するライブラリ",
   "main": "vertical_text_canvas.js",
   "scripts": {
